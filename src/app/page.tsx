@@ -1,6 +1,20 @@
+"use client"
+
 import Image from "next/image";
+import { Graph } from "react-github-activity-calendar";
+
+
 
 export default function Home() {
+
+  const githubApiKey = process.env.NEXT_PUBLIC_GITHUB_API_KEY as string;
+  console.log(process.env);
+  console.log(githubApiKey);
+  const githubUserName = "codemnml";
+  const bgcolor = "";
+  const textColor = "lightgray";
+
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -26,11 +40,21 @@ export default function Home() {
       </div>
       
 
+      <div className="pt-8 pb-6 w-96 sm:w-[40rem] lg:w-fit">
+        <Graph
+          userName={githubUserName}
+          backgroundColor={bgcolor}
+          githubApiKey={githubApiKey}
+          color={textColor}
+          className=""
+        />
+      </div>
+
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
               <h1 className="text-2xl px-5 py-4 text-slate-400">Projects</h1>
         <a
           href="https://www.dirkandsons.com"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          className="group rounded-lg border border-transparent px-5 py-8 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
         >
